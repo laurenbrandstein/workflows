@@ -1,0 +1,271 @@
+Admins-MacBook-Pro-2:~ lauren$ node --version
+v0.12.2
+Admins-MacBook-Pro-2:~ lauren$ npm install -g gulp
+npm ERR! Darwin 14.1.0
+npm ERR! argv "node" "/usr/local/bin/npm" "install" "-g" "gulp"
+npm ERR! node v0.12.2
+npm ERR! npm  v2.7.4
+npm ERR! path /usr/local/lib/node_modules/gulp
+npm ERR! code EACCES
+npm ERR! errno -13
+
+npm ERR! Error: EACCES, rmdir '/usr/local/lib/node_modules/gulp'
+npm ERR!     at Error (native)
+npm ERR!  { [Error: EACCES, rmdir '/usr/local/lib/node_modules/gulp']
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   path: '/usr/local/lib/node_modules/gulp' }
+npm ERR! 
+npm ERR! Please try running this command again as root/Administrator.
+npm ERR! error rolling back Error: EACCES, rmdir '/usr/local/lib/node_modules/gulp'
+npm ERR! error rolling back     at Error (native)
+npm ERR! error rolling back  { [Error: EACCES, rmdir '/usr/local/lib/node_modules/gulp']
+npm ERR! error rolling back   errno: -13,
+npm ERR! error rolling back   code: 'EACCES',
+npm ERR! error rolling back   path: '/usr/local/lib/node_modules/gulp' }
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /Users/lauren/npm-debug.log
+Admins-MacBook-Pro-2:~ lauren$ sudo !!
+sudo npm install -g gulp
+Password:
+/usr/local/bin/gulp -> /usr/local/lib/node_modules/gulp/bin/gulp.js
+gulp@3.8.11 /usr/local/lib/node_modules/gulp
+├── pretty-hrtime@0.2.2
+├── interpret@0.3.10
+├── deprecated@0.0.1
+├── archy@1.0.0
+├── v8flags@2.0.5 (user-home@1.1.1)
+├── tildify@1.0.0 (user-home@1.1.1)
+├── minimist@1.1.1
+├── chalk@0.5.1 (ansi-styles@1.1.0, escape-string-regexp@1.0.3, supports-color@0.2.0, strip-ansi@0.3.0, has-ansi@0.1.0)
+├── semver@4.3.3
+├── orchestrator@0.3.7 (stream-consume@0.1.0, sequencify@0.0.7, end-of-stream@0.1.5)
+├── gulp-util@3.0.4 (array-differ@1.0.0, beeper@1.0.0, array-uniq@1.0.2, object-assign@2.0.0, lodash._reevaluate@3.0.0, lodash._reescape@3.0.0, lodash._reinterpolate@3.0.0, replace-ext@0.0.1, chalk@1.0.0, vinyl@0.4.6, lodash.template@3.5.1, through2@0.6.5, dateformat@1.0.11, multipipe@0.1.2)
+├── liftoff@2.0.3 (extend@2.0.1, flagged-respawn@0.3.1, resolve@1.1.6, findup-sync@0.2.1)
+└── vinyl-fs@0.3.13 (graceful-fs@3.0.6, strip-bom@1.0.0, defaults@1.0.2, vinyl@0.4.6, mkdirp@0.5.0, through2@0.6.5, glob-stream@3.1.18, glob-watcher@0.0.6)
+Admins-MacBook-Pro-2:~ lauren$ npm install -g browserify
+npm ERR! tar.unpack untar error /Users/lauren/.npm/browserify/10.0.0/package.tgz
+npm ERR! Darwin 14.1.0
+npm ERR! argv "node" "/usr/local/bin/npm" "install" "-g" "browserify"
+npm ERR! node v0.12.2
+npm ERR! npm  v2.7.4
+npm ERR! path /usr/local/lib/node_modules/browserify
+npm ERR! code EACCES
+npm ERR! errno -13
+
+npm ERR! Error: EACCES, mkdir '/usr/local/lib/node_modules/browserify'
+npm ERR!     at Error (native)
+npm ERR!  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/browserify']
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   path: '/usr/local/lib/node_modules/browserify',
+npm ERR!   fstream_type: 'Directory',
+npm ERR!   fstream_path: '/usr/local/lib/node_modules/browserify',
+npm ERR!   fstream_class: 'DirWriter',
+npm ERR!   fstream_stack: 
+npm ERR!    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+npm ERR!      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+npm ERR!      'FSReqWrap.oncomplete (fs.js:95:15)' ] }
+npm ERR! 
+npm ERR! Please try running this command again as root/Administrator.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /Users/lauren/npm-debug.log
+Admins-MacBook-Pro-2:~ lauren$ sudo npm install -g browserify
+/usr/local/bin/browserify -> /usr/local/lib/node_modules/browserify/bin/cmd.js
+browserify@10.0.0 /usr/local/lib/node_modules/browserify
+├── https-browserify@0.0.0
+├── htmlescape@1.1.0
+├── tty-browserify@0.0.0
+├── builtins@0.0.7
+├── constants-browserify@0.0.1
+├── isarray@0.0.1
+├── path-browserify@0.0.0
+├── inherits@2.0.1
+├── os-browserify@0.1.2
+├── string_decoder@0.10.31
+├── commondir@0.0.1
+├── stream-browserify@1.0.0
+├── through2@1.1.1
+├── process@0.11.0
+├── has@1.0.0
+├── shell-quote@0.0.1
+├── punycode@1.3.2
+├── defined@1.0.0
+├── xtend@4.0.0
+├── domain-browser@1.1.4
+├── duplexer2@0.0.2
+├── shallow-copy@0.0.1
+├── deep-equal@1.0.0
+├── querystring-es3@0.2.1
+├── assert@1.3.0
+├── util@0.10.3
+├── events@1.0.2
+├── timers-browserify@1.4.0 (process@0.10.1)
+├── parents@1.0.1 (path-platform@0.11.15)
+├── vm-browserify@0.0.4 (indexof@0.0.1)
+├── read-only-stream@1.1.1 (readable-wrap@1.0.0)
+├── console-browserify@1.1.0 (date-now@0.1.4)
+├── concat-stream@1.4.8 (typedarray@0.0.6)
+├── subarg@1.0.0 (minimist@1.1.1)
+├── readable-stream@1.1.13 (core-util-is@1.0.1)
+├── http-browserify@1.7.0 (Base64@0.2.1)
+├── url@0.10.3 (querystring@0.2.0)
+├── shasum@1.0.1 (sha.js@2.3.6, json-stable-stringify@0.0.1)
+├── deps-sort@1.3.6 (through2@0.5.1)
+├── resolve@1.1.6
+├── browser-resolve@1.8.2
+├── labeled-stream-splicer@1.0.2 (stream-splicer@1.3.1)
+├── buffer@3.2.1 (ieee754@1.1.4, is-array@1.0.1, base64-js@0.0.8)
+├── glob@4.5.3 (once@1.3.1, inflight@1.0.4, minimatch@2.0.7)
+├── syntax-error@1.1.3 (acorn@1.0.3)
+├── JSONStream@0.10.0 (through@2.3.7, jsonparse@0.0.5)
+├── browserify-zlib@0.1.4 (pako@0.2.6)
+├── browser-pack@4.0.2 (umd@3.0.1, through2@0.5.1, combine-source-map@0.3.0)
+├── insert-module-globals@6.4.0 (through@2.3.7, combine-source-map@0.3.0, lexical-scope@1.1.1)
+├── crypto-browserify@3.9.14 (randombytes@2.0.1, create-hmac@1.1.3, pbkdf2@3.0.4, create-hash@1.1.1, browserify-aes@1.0.0, diffie-hellman@3.0.1, create-ecdh@2.0.0, browserify-sign@3.0.1, public-encrypt@2.0.0)
+└── module-deps@3.7.8 (stream-combiner2@1.0.2, through2@0.4.2, detective@4.0.1)
+Admins-MacBook-Pro-2:~ lauren$ ruby --version
+ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
+Admins-MacBook-Pro-2:~ lauren$ gem update
+Updating installed gems
+Updating CFPropertyList
+Fetching: CFPropertyList-2.3.1.gem (100%)
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /Library/Ruby/Gems/2.0.0 directory.
+Admins-MacBook-Pro-2:~ lauren$ sudo gem update
+Updating installed gems
+Updating CFPropertyList
+Fetching: CFPropertyList-2.3.1.gem (100%)
+Successfully installed CFPropertyList-2.3.1
+Parsing documentation for CFPropertyList-2.3.1
+Installing ri documentation for CFPropertyList-2.3.1
+Installing darkfish documentation for CFPropertyList-2.3.1
+Updating bigdecimal
+Fetching: bigdecimal-1.2.7.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed bigdecimal-1.2.7
+Parsing documentation for bigdecimal-1.2.7
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for bigdecimal.bundle, skipping
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for bigdecimal.o, skipping
+Installing ri documentation for bigdecimal-1.2.7
+Installing darkfish documentation for bigdecimal-1.2.7
+Updating bundler
+Fetching: bundler-1.9.5.gem (100%)
+Successfully installed bundler-1.9.5
+Parsing documentation for bundler-1.9.5
+Installing ri documentation for bundler-1.9.5
+Installing darkfish documentation for bundler-1.9.5
+Updating json
+Fetching: json-1.8.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed json-1.8.2
+Parsing documentation for json-1.8.2
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for lib/json/ext/generator.bundle, skipping
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for lib/json/ext/parser.bundle, skipping
+Installing ri documentation for json-1.8.2
+Installing darkfish documentation for json-1.8.2
+Updating libxml-ruby
+Fetching: libxml-ruby-2.8.0.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed libxml-ruby-2.8.0
+Parsing documentation for libxml-ruby-2.8.0
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for lib/libxml_ruby.bundle, skipping
+Installing ri documentation for libxml-ruby-2.8.0
+Installing darkfish documentation for libxml-ruby-2.8.0
+Updating minitest
+Fetching: minitest-5.6.1.gem (100%)
+Successfully installed minitest-5.6.1
+Parsing documentation for minitest-5.6.1
+Installing ri documentation for minitest-5.6.1
+Installing darkfish documentation for minitest-5.6.1
+Updating nokogiri
+Fetching: mini_portile-0.6.2.gem (100%)
+Successfully installed mini_portile-0.6.2
+Fetching: nokogiri-1.6.6.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed nokogiri-1.6.6.2
+Parsing documentation for mini_portile-0.6.2
+Installing ri documentation for mini_portile-0.6.2
+Installing darkfish documentation for mini_portile-0.6.2
+Parsing documentation for nokogiri-1.6.6.2
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for lib/nokogiri/nokogiri.bundle, skipping
+Installing ri documentation for nokogiri-1.6.6.2
+Installing darkfish documentation for nokogiri-1.6.6.2
+Updating psych
+Fetching: psych-2.0.13.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed psych-2.0.13
+Parsing documentation for psych-2.0.13
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for lib/psych.bundle, skipping
+Installing ri documentation for psych-2.0.13
+Installing darkfish documentation for psych-2.0.13
+Updating rake
+Fetching: rake-10.4.2.gem (100%)
+rake's executable "rake" conflicts with /usr/bin/rake
+Overwrite the executable? [yN]  y
+Successfully installed rake-10.4.2
+Parsing documentation for rake-10.4.2
+Installing ri documentation for rake-10.4.2
+Installing darkfish documentation for rake-10.4.2
+Updating rdoc
+Fetching: rdoc-4.2.0.gem (100%)
+rdoc's executable "rdoc" conflicts with /usr/bin/rdoc
+Overwrite the executable? [yN]  y
+rdoc's executable "ri" conflicts with /usr/bin/ri
+Overwrite the executable? [yN]  y
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+<= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+>= 1.9.2 : nothing to do! Yay!
+Successfully installed rdoc-4.2.0
+Parsing documentation for rdoc-4.2.0
+Installing ri documentation for rdoc-4.2.0
+Installing darkfish documentation for rdoc-4.2.0
+Updating slop
+Fetching: slop-4.1.0.gem (100%)
+Successfully installed slop-4.1.0
+Parsing documentation for slop-4.1.0
+Installing ri documentation for slop-4.1.0
+Installing darkfish documentation for slop-4.1.0
+Updating sqlite3
+Fetching: sqlite3-1.3.10.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed sqlite3-1.3.10
+Parsing documentation for sqlite3-1.3.10
+unable to convert "\xCA" from ASCII-8BIT to UTF-8 for lib/sqlite3/sqlite3_native.bundle, skipping
+Installing ri documentation for sqlite3-1.3.10
+Installing darkfish documentation for sqlite3-1.3.10
+Updating test-unit
+Fetching: power_assert-0.2.3.gem (100%)
+Successfully installed power_assert-0.2.3
+Fetching: test-unit-3.0.9.gem (100%)
+Successfully installed test-unit-3.0.9
+Parsing documentation for power_assert-0.2.3
+Installing ri documentation for power_assert-0.2.3
+Installing darkfish documentation for power_assert-0.2.3
+Parsing documentation for test-unit-3.0.9
+Installing ri documentation for test-unit-3.0.9
+Installing darkfish documentation for test-unit-3.0.9
+Gems updated: CFPropertyList bigdecimal bundler json libxml-ruby minitest mini_portile nokogiri psych rake rdoc slop sqlite3 power_assert test-unit
+Admins-MacBook-Pro-2:~ lauren$ gem install sass
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /Library/Ruby/Gems/2.0.0 directory.
+Admins-MacBook-Pro-2:~ lauren$ sudo gem install sass
+Successfully installed sass-3.4.13
+Parsing documentation for sass-3.4.13
+Done installing documentation for sass after 5 seconds
+1 gem installed
+Admins-MacBook-Pro-2:~ lauren$ sudo gem install compass
+    Compass is charityware. If you love it, please donate on our behalf at http://umdf.org/compass Thanks!
+Successfully installed compass-1.0.3
+Parsing documentation for compass-1.0.3
+Done installing documentation for compass after 1 seconds
+1 gem installed
+Admins-MacBook-Pro-2:~ lauren$ cd
+Admins-MacBook-Pro-2:~ lauren$ mkdir fe-workflows
+Admins-MacBook-Pro-2:~ lauren$ cd fe-workflows/
+Admins-MacBook-Pro-2:fe-workflows lauren$ 
