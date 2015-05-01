@@ -7,5 +7,9 @@
     "type": "git",
     "url": "?.git"
   },
-  "author": "Lauren Brandstein"
+  "author": "Lauren Brandstein",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.4"
+  }
 }
