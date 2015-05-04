@@ -46,6 +46,7 @@ gulp.task('js', function () {
 
 gulp.task('compass', function () {
     gulp.src(sassSources)
+        // Provide Compass config object directly (vs. config.rb)
         .pipe(compass(
             {
                 image: 'builds/development/images',
@@ -60,4 +61,4 @@ gulp.task('compass', function () {
         .pipe(gulp.dest('builds/development/css'));
 });
 
-gulp.task('default', ['coffee', 'js']);
+gulp.task('default', ['coffee', 'js', 'compass']);
