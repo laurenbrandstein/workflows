@@ -10,7 +10,7 @@ var browserify = require('gulp-browserify'),
 
 // *** Sources ***
 
-var coffeeSrcs = ['components/coffee/tagline.coffee'];
+var coffeeSources = ['components/coffee/tagline.coffee'];
 
 var jsSources = [
     'components/scripts/rclick.js',
@@ -21,7 +21,13 @@ var jsSources = [
 
 // All styles imported into a single stylesheet
 // on this project, so we only need a single src
+// when processing to CSS
 var sassSources = ['components/sass/style.scss'];
+
+// For gulp watch, we need to check for changes
+// to any scss file, including partials, in order
+// to trigger processing of CSS
+var sassSourcesAll = 'components/sass/*.scss';
 
 
 // *** Gulp Tasks ***
@@ -31,7 +37,7 @@ var sassSources = ['components/sass/style.scss'];
 // });
 
 gulp.task('coffee', function () {
-    gulp.src(coffeeSrcs)
+    gulp.src(coffeeSources)
         .pipe(coffee({ bare: true })
             .on('error', gutil.log))
 		.pipe(gulp.dest('components/scripts'));
@@ -60,5 +66,14 @@ gulp.task('compass', function () {
             .on('error', gutil.log)
         .pipe(gulp.dest('builds/development/css'));
 });
+
+gulp.task('watch', function(){
+    gulp.watch(coffeeSources, ['coffee']);
+    gulp.watch(jsSources, ['js']);
+    gulp.watch(sassSourcesAll, ['compass']);
+});
+
+
+// *** Default ***
 
 gulp.task('default', ['coffee', 'js', 'compass']);
