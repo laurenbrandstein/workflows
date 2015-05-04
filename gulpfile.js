@@ -27,3 +27,5 @@ gulp.task('js', function () {
         .pipe(concat('script.js'))
 		.pipe(gulp.dest('builds/development/js'));
 });
+
+gulp.task('default', ['coffee', 'js']);
