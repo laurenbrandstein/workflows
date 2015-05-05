@@ -8,8 +8,10 @@ var browserify = require('gulp-browserify'),
     gulp = require('gulp'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
+    imagemin = require('gulp-imagemin'),
     jsonMinify = require('gulp-jsonminify'),
     minifyHTML = require('gulp-minify-html'),
+    pngcrush = require('imagemin-pngcrush'),
     uglify = require('gulp-uglify');
 
 
@@ -18,6 +20,7 @@ var browserify = require('gulp-browserify'),
 var coffeeSources,
     env,
     htmlSources,
+    imageSources,
     jsSources,
     jsonSources,
     outputDir,
@@ -48,12 +51,6 @@ jsSources = [
     'components/scripts/template.js'
 ];
 
-// Right now, we are using JSON only from
-// dev, and using gulp-if to minify for prod
-jsonSources = ['builds/development/js/*.json'];
-// If JSON source needs to differ for env:
-// jsonSources = [outputDir + 'js/*.json'];
-
 // All styles imported into a single stylesheet
 // on this project, so we only need a single src
 // when processing to CSS
@@ -64,11 +61,16 @@ sassSources = ['components/sass/style.scss'];
 // to trigger processing of CSS
 sassSourcesAll = 'components/sass/*.scss';
 
-// Right now, we are using HTML only from
-// dev, and using gulp-if to minify for prod
+// Right now, we are using these sources only from
+// dev, and using gulp-if in tasks to minify for prod
 htmlSources = ['builds/development/*.html'];
-// If HTML source needs to differ for env:
+imageSources = ['builds/development/images/**/*.*'];
+jsonSources = ['builds/development/js/*.json'];
+
+// If source needs to differ for env:
 // htmlSources = [outputDir + '*.html'];
+// imageSources = [outputDir + 'images/**/*.*'];
+// jsonSources = [outputDir + 'js/*.json'];
 
 
 // *** Gulp Tasks ***
@@ -125,11 +127,23 @@ gulp.task('html', function () {
         .pipe(connect.reload());
 });
 
+gulp.task('images', function () {
+    gulp.src(imageSources)
+        .pipe(gulpif(env === 'production', imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngcrush()]
+        })))
+        .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'images')))
+        .pipe(connect.reload());
+});
+
 gulp.task('watch', function () {
     gulp.watch(htmlSources, ['html']);
     gulp.watch(coffeeSources, ['coffee']);
     gulp.watch(jsSources, ['js']);
     gulp.watch(jsonSources, ['json']);
+    gulp.watch(imageSources, ['images']);
     gulp.watch(sassSourcesAll, ['compass']);
 });
 
@@ -144,4 +158,4 @@ gulp.task('connect', function () {
 
 // Default Gulp Task
 
-gulp.task('default', ['html', 'coffee', 'js', 'json', 'compass', 'connect', 'watch']);
+gulp.task('default', ['html', 'coffee', 'js', 'json', 'compass', 'images', 'connect', 'watch']);
