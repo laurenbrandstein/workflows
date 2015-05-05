@@ -8,6 +8,7 @@ var browserify = require('gulp-browserify'),
     gulp = require('gulp'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
+    minifyHTML = require('gulp-minify-html'),
     uglify = require('gulp-uglify');
 
 
@@ -24,6 +25,7 @@ var coffeeSources,
     sassSourcesAll;
 
 // Environment
+
 env = process.env.NODE_ENV || 'development';
 
 if (env === 'development') {
@@ -33,6 +35,8 @@ if (env === 'development') {
     outputDir = 'builds/production/';
     sassStyle = 'compressed';
 }
+
+// Sources
 
 coffeeSources = ['components/coffee/tagline.coffee'];
 
@@ -55,7 +59,12 @@ sassSources = ['components/sass/style.scss'];
 // to trigger processing of CSS
 sassSourcesAll = 'components/sass/*.scss';
 
-htmlSources = [outputDir + '*.html'];
+// Right now, we are using HTML only from
+// dev, and using gulp-if to minify for prod
+htmlSources = ['builds/development/*.html'];
+// If HTML source needs to differ for env:
+// htmlSources = [outputDir + '*.html'];
+
 
 // *** Gulp Tasks ***
 
@@ -104,6 +113,8 @@ gulp.task('json', function () {
 
 gulp.task('html', function () {
     gulp.src(htmlSources)
+        .pipe(gulpif(env === 'production', minifyHTML()))
+        .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
         .pipe(connect.reload());
 });
 
@@ -124,6 +135,6 @@ gulp.task('connect', function () {
 });
 
 
-// *** Default ***
+// Default Gulp Task
 
 gulp.task('default', ['html', 'coffee', 'js', 'json', 'compass', 'connect', 'watch']);
