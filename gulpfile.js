@@ -6,7 +6,9 @@ var browserify = require('gulp-browserify'),
     connect = require('gulp-connect'),
     coffee = require('gulp-coffee'),
     gulp = require('gulp'),
-    gutil = require('gulp-util');
+    gulpif = require('gulp-if'),
+    gutil = require('gulp-util'),
+    uglify = require('gulp-uglify');
 
 
 // *** Environment & Sources ***
@@ -72,6 +74,7 @@ gulp.task('js', function () {
     gulp.src(jsSources)
         .pipe(concat('script.js'))
         .pipe(browserify())
+        .pipe(gulpif(env === 'production', uglify()))
         .pipe(gulp.dest(outputDir + 'js'))
         .pipe(connect.reload());
 });
