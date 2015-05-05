@@ -8,6 +8,7 @@ var browserify = require('gulp-browserify'),
     gulp = require('gulp'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
+    jsonMinify = require('gulp-jsonminify'),
     minifyHTML = require('gulp-minify-html'),
     uglify = require('gulp-uglify');
 
@@ -47,7 +48,11 @@ jsSources = [
     'components/scripts/template.js'
 ];
 
-jsonSources = [outputDir + 'js/*.json'];
+// Right now, we are using JSON only from
+// dev, and using gulp-if to minify for prod
+jsonSources = ['builds/development/js/*.json'];
+// If JSON source needs to differ for env:
+// jsonSources = [outputDir + 'js/*.json'];
 
 // All styles imported into a single stylesheet
 // on this project, so we only need a single src
@@ -108,6 +113,8 @@ gulp.task('compass', function () {
 
 gulp.task('json', function () {
     gulp.src(jsonSources)
+        .pipe(gulpif(env === 'production', jsonMinify()))
+        .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'js')))
         .pipe(connect.reload());
 });
 
