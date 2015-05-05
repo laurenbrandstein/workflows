@@ -20,6 +20,8 @@ var jsSources = [
     'components/scripts/template.js'
 ];
 
+var jsonSources = ['builds/development/js/*.json'];
+
 // All styles imported into a single stylesheet
 // on this project, so we only need a single src
 // when processing to CSS
@@ -30,6 +32,7 @@ var sassSources = ['components/sass/style.scss'];
 // to trigger processing of CSS
 var sassSourcesAll = 'components/sass/*.scss';
 
+var htmlSources = ['builds/development/*.html'];
 
 // *** Gulp Tasks ***
 
@@ -70,9 +73,21 @@ gulp.task('compass', function () {
         .pipe(connect.reload());
 });
 
+gulp.task('json', function () {
+    gulp.src(jsonSources)
+        .pipe(connect.reload());
+});
+
+gulp.task('html', function () {
+    gulp.src(htmlSources)
+        .pipe(connect.reload());
+});
+
 gulp.task('watch', function () {
+    gulp.watch(htmlSources, ['html']);
     gulp.watch(coffeeSources, ['coffee']);
     gulp.watch(jsSources, ['js']);
+    gulp.watch(jsonSources, ['json']);
     gulp.watch(sassSourcesAll, ['compass']);
 });
 
@@ -87,4 +102,4 @@ gulp.task('connect', function () {
 
 // *** Default ***
 
-gulp.task('default', ['coffee', 'js', 'compass', 'connect', 'watch']);
+gulp.task('default', ['html', 'coffee', 'js', 'json', 'compass', 'connect', 'watch']);
